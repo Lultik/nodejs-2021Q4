@@ -30,7 +30,7 @@ const getConfig = (args) => {
     console.error(e.message)
     process.exit(1);
   }
-  return config;
+  return config.toUpperCase().split('-');
 }
 
-module.exports = {getParameters: getConfig};
+module.exports = {getConfig};
