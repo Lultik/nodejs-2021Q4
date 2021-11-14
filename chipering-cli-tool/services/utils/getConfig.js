@@ -1,4 +1,4 @@
-const {flagAlias, flagNames} = require('./constants/flags.js')
+const {flagAlias, flagNames} = require('../../constants/flags.js')
 
 const getConfig = (args) => {
   const flags = flagAlias[flagNames.CONFIG];
@@ -26,8 +26,8 @@ const getConfig = (args) => {
       throw Error('Please, input correct config params')
     }
 
-  } catch (e) {
-    console.error(e.message)
+  } catch (err) {
+    console.error(err.message)
     process.exit(1);
   }
   return config.toUpperCase().split('-');
