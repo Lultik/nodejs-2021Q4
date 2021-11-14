@@ -1,6 +1,23 @@
+const { Transform } = require('stream');
+
 const {ALPHABET_LENGTH} = require("../constants/cipher");
 const {shiftCipher} = require("./shiftCipher");
 
-const aCoder = shiftCipher((letterAlphabetOrder) => ALPHABET_LENGTH - letterAlphabetOrder - 1)(0);
+const aCoderHelper = shiftCipher((letterAlphabetOrder) => ALPHABET_LENGTH - letterAlphabetOrder - 1)(0);
 
-module.exports = {aCoder};
+class ACoder extends Transform {
+  constructor() {
+    super();
+  }
+  _transform(chunk, encoding, done) {
+    try {
+      const result = aCoderHelper(chunk.toString());
+
+      done(null, result);
+    } catch (error) {
+      done(error, null);
+    }
+  }
+}
+
+module.exports = {ACoder};
