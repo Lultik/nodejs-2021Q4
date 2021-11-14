@@ -1,5 +1,5 @@
 const {ALPHABET_LENGTH} = require("../constants/cipher");
-const { getAlphabetShift } = require('./helper');
+const { getAlphabetShift } = require('../services/utils/');
 
 const shiftCipher = (getAlphabeticalOrder) => (shift) => (chunk) => {
   let output = ''
