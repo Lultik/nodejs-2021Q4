@@ -1,0 +1,5 @@
+const CAESAR_SHIFT = 1;
+const ROT_SHIFT = 8;
+const ALPHABET_LENGTH = 26;
+
+module.exports = {CAESAR_SHIFT, ALPHABET_LENGTH, ROT_SHIFT};
