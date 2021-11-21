@@ -3,6 +3,8 @@ const getAlphabetShift = (charCode) => {
     return 65;
   } else if (charCode > 96 && charCode <= 122) {
     return 97;
+  } else {
+    return null;
   }
 }
 
