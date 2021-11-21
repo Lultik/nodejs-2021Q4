@@ -14,10 +14,6 @@ const getConfig = (args) => {
 
     config = args[parameterIndex + 1];
 
-    if (!config) {
-      throw Error('Config is empty. Add cipher to encode/decode input file')
-    }
-
     const configQueue = config.split('-');
 
     const isIncorrectParams = !configQueue.every(el => /^([CR][01])|A$/i.test(el));

@@ -6,34 +6,32 @@ class CustomWritableStream extends Writable {
   constructor(destinationPath) {
     super();
     this.destination = path.resolve(__dirname + `/../${destinationPath}`);
-
-    fs.open(this.destination, 'wx', (err, fd) => {
-      if (err) {
-        if(err.code === 'EEXIST') {
-          return
-        }
-      }
-      try {
-        fs.writeFile(this.destination, '', (err) => {
-          if(err) throw err;
-          console.log('File has been created!')
-        })
-      } finally {
-        fs.close(fd, (err) => {
-          if(err) throw err;
-        })
-      }
-    })
   }
 
-  _write(chunk, encoding, next) {
+  constructCallback (err) {
+    if (err) {
+      console.error('File ne naiden. Poprobuite snova! (Ne poluchitsa)');
+      process.exit(1);
+    }
+  }
+
+  _construct(callback) {
+    fs.open(this.destination, (err) => this.constructCallback(err))
+  }
+
+  appendCallback (err) {
+    if (err) {
+      console.error(err.message);
+      process.exit(1);
+    }
+  }
+
+  _write(chunk, encoding, done) {
     try {
-      fs.appendFile(this.destination, chunk, 'utf-8', (err) => {
-        if (err) throw err;
-      })
-      next(null, chunk);
+      fs.appendFile(this.destination, chunk, 'utf-8', (err) => this.appendCallback(err))
+      done(null, chunk);
     } catch (err) {
-      next(err, null);
+      done(err, null);
       console.error(err.message);
       process.exit(1);
     }

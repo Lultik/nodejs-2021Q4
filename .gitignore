@@ -1,3 +1,4 @@
 .idea/
 ./chipering-cli-tool/input.txt
-
+chipering-cli-tool/node_modules/
+chipering-cli-tool/coverage/
