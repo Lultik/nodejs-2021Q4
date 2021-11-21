@@ -14,7 +14,10 @@
 2. -i, --input: a path to input file
 3. -o, --output: a path to output file
 
-You can use aliases from package.json to execute usages examples from school's repo:
+To start application use following commands:
+> node my_ciphering_cli [`-c` or `--config`] [config parameters] [`-i` or `--input`] [input parameters] [`-o` or `--output`] [output parameters]
+
+Also you can use aliases from package.json to execute usages examples from school's repo:
 
 > ```npm run first``` will execute "node my_ciphering_cli -c C1-C1-R0-A -i ./shortInput.txt -o ./output.txt"
 

@@ -2,13 +2,19 @@
   "name": "chipering-cli-tool",
   "version": "1.0.0",
   "description": "",
+  "type": "commonjs",
   "main": "my_ciphering_cli.js",
   "scripts": {
-    "first": "node my_ciphering_cli -c C1-C1-R0-A -i ./shortInput.txt -o ./output.txt",
-    "second": "node my_ciphering_cli -c C1-C0-A-R1-R0-A-R0-R0-C1-A -i ./shortInput.txt -o ./output.txt",
-    "third": "node my_ciphering_cli -c A-A-A-R1-R0-R0-R0-C1-C1-A -i ./input.txt -o ./output.txt",
-    "fourth": "node my_ciphering_cli -c C1-R1-C0-C0-A-R0-R1-R1-A-C1 -i ./input.txt -o ./output.txt"
+    "test": "jest --verbose",
+    "coverage": "jest --verbose --coverage",
+    "watch": "jest --verbose --coverage --watch"
   },
   "author": "Mikhail Stankevich",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.3.1"
+  },
+  "jest": {
+    "verbose": true
+  }
 }
